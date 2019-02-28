@@ -1,6 +1,7 @@
 image: microsoft/dotnet:latest
 
 stages:
+  - build
   - deploy
 
 variables:
@@ -9,47 +10,36 @@ variables:
 before_script:
   - "dotnet restore"
 
-deploy:
-  stage: deploy
-  variables:
-    build_path: "$project"
-  script:
-    - echo "Deploy to Prod"
-    - "cd $build_path"
-    - "dotnet build"
-    - "dotnet publish"
-  environment:
-    name: production
-    url: https://Devpartners.co/Inventory/api/
-  only:
-  - master
-
-# build_job:
-#   stage: build
+# deploy:
+#   stage: deploy
 #   variables:
 #     build_path: "$project"
 #   script:
+#     - echo "Deploy to Prod"
 #     - "cd $build_path"
 #     - "dotnet build"
-#   artifacts:
-#     paths: 
-#     - '$project/bin/Release/Publish/'
-  
-# deploy_job:
-#   stage: deploy
-#   only:
-#   - master
-#   script: 
-#     - 'xcopy /y /s "$project/bin/Release/Publish/*.*" "https://Devpartners.co/Inventory/api/"'
-
-#     - 'curl -X POST -u https://Devpartners.co/Inventory/api/'
-
-# deploy_job:
-#   stage: deploy
-#   script:
-#     - echo "Deploy to  server"
+#     - "dotnet publish"
 #   environment:
-#     stage: deploy
+#     name: production
 #     url: https://Devpartners.co/Inventory/api/
 #   only:
 #   - master
+
+build_job:
+  stage: build
+  variables:
+    build_path: "$project"
+  script:
+    - "cd $build_path"
+    - "dotnet build"
+    - "dotnet publish"
+  artifacts:
+    paths: 
+    - '$project/bin/Release/Publish/'
+  
+deploy_job:
+  stage: deploy
+  only:
+  - master
+  script: 
+    - 'xcopy /y /s "/builds/mlabio/BPOSolution/Portfolio/bin/Debug/netcoreapp2.1/*.*" "https://Devpartners.co/Inventory/api/"'
