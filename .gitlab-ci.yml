@@ -10,7 +10,7 @@ variables:
 before_script:
   - "dotnet restore"
 
-build:
+build_job:
   stage: build
   variables:
     build_path: "$project"
@@ -21,11 +21,10 @@ build:
     paths: 
     - '$project/bin/Release/Publish/'
   
-deploy:
+deploy_job:
   stage: deploy
   script: 
     - 'xcopy /y /s "$project/bin/Release/Publish/*.*" "https://Devpartners.co/Inventory/api/"'
 
 dependencies:
-  - build
-  - deploy
+  - build_job
