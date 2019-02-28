@@ -12,8 +12,6 @@ before_script:
 
 build_job:
   stage: build
-  only:
-    - branches
   variables:
     build_path: "$project"
   script:
@@ -25,10 +23,5 @@ build_job:
   
 deploy_job:
   stage: deploy
-  only:
-    - branches
   script: 
     - 'xcopy /y /s "$project/bin/Release/Publish/*.*" "https://Devpartners.co/Inventory/api/"'
-
-dependencies:
-  - build_job
