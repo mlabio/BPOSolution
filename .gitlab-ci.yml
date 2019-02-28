@@ -10,16 +10,35 @@ variables:
 before_script:
   - "dotnet restore"
 
-build_job:
+build:
   stage: build
-  variables:
-    build_path: "$project"
   script:
     - "cd $build_path"
     - "dotnet build"
   artifacts:
     paths: 
     - '$project/bin/Release/Publish/'
+
+deploy:
+  stage: deploy
+  script:
+    - echo "Deploy to Prod"
+  environment:
+    name: staging
+    url: https://Devpartners.co/Inventory/api/
+  only:
+  - master
+
+# build_job:
+#   stage: build
+#   variables:
+#     build_path: "$project"
+#   script:
+#     - "cd $build_path"
+#     - "dotnet build"
+#   artifacts:
+#     paths: 
+#     - '$project/bin/Release/Publish/'
   
 # deploy_job:
 #   stage: deploy
@@ -30,12 +49,12 @@ build_job:
 
 #     - 'curl -X POST -u https://Devpartners.co/Inventory/api/'
 
-deploy_job:
-stage: deploy
-script:
-  - echo "Deploy to  server"
-environment:
-  stage: deploy
-  url: https://Devpartners.co/Inventory/api/
-only:
-- master
+# deploy_job:
+#   stage: deploy
+#   script:
+#     - echo "Deploy to  server"
+#   environment:
+#     stage: deploy
+#     url: https://Devpartners.co/Inventory/api/
+#   only:
+#   - master
