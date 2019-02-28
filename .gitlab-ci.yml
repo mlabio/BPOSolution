@@ -1,7 +1,6 @@
 image: microsoft/dotnet:latest
 
 stages:
-  - build
   - deploy
 
 variables:
@@ -9,16 +8,7 @@ variables:
 
 before_script:
   - "dotnet restore"
-
-build:
-  stage: build
-  script:
-    - "cd $build_path"
-    - "dotnet build"
-  artifacts:
-    paths: 
-    - '$project/bin/Release/Publish/'
-
+  
 deploy:
   stage: deploy
   script:
