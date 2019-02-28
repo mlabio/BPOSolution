@@ -27,3 +27,4 @@ C:\Users\mlabio\Desktop\BPOSolution\Portfolio\obj\Debug\netcoreapp2.1\BPOSolutio
 C:\Users\mlabio\Desktop\BPOSolution\Portfolio\obj\Debug\netcoreapp2.1\BPOSolution.RazorTargetAssemblyInfo.cache
 C:\Users\mlabio\Desktop\BPOSolution\Portfolio\obj\Debug\netcoreapp2.1\BPOSolution.dll
 C:\Users\mlabio\Desktop\BPOSolution\Portfolio\obj\Debug\netcoreapp2.1\BPOSolution.pdb
+C:\Users\mlabio\Desktop\BPOSolution\Portfolio\obj\Debug\netcoreapp2.1\BPOSolution.csprojAssemblyReference.cache
