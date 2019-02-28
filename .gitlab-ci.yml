@@ -1,0 +1,31 @@
+image: microsoft/dotnet:latest
+
+stages:
+  - build
+  - deploy
+
+variables:
+  project: "BPOSolution"
+
+before_script:
+  - "dotnet restore"
+
+build:
+  stage: build
+  variables:
+    build_path: "$project"
+  script:
+    - "cd $build_path"
+    - "dotnet build"
+  artifacts:
+    paths: 
+    - '$project/bin/Release/Publish/'
+  
+deploy:
+  stage: deploy
+  script: 
+    - 'xcopy /y /s "$project/bin/Release/Publish/*.*" "https://Devpartners.co/Inventory/api/"'
+
+dependencies:
+  - build
+  - deploy
