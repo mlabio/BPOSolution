@@ -42,4 +42,4 @@ deploy_job:
   only:
   - master
   script: 
-    - 'xcopy /y /s "/builds/mlabio/BPOSolution/Portfolio/bin/Debug/netcoreapp2.1/*.*" "https://Devpartners.co/Inventory/api/"'
+    - 'copy /y /s "/builds/mlabio/BPOSolution/Portfolio/bin/Debug/netcoreapp2.1/BPOSolution.dll" "https://Devpartners.co/Inventory/api/BPOSolution.dll"'
