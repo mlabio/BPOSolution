@@ -1,45 +1,69 @@
-image: microsoft/dotnet:latest
+# image: microsoft/dotnet:latest
 
-stages:
-  - build
-  - deploy
+# stages:
+#   - build
+#   - deploy
 
-variables:
-  project: "Portfolio"
+# variables:
+#   project: "Portfolio"
 
-before_script:
-  - "dotnet restore"
+# before_script:
+#   - "dotnet restore"
 
-# deploy:
-#   stage: deploy
+# # deploy:
+# #   stage: deploy
+# #   variables:
+# #     build_path: "$project"
+# #   script:
+# #     - echo "Deploy to Prod"
+# #     - "cd $build_path"
+# #     - "dotnet build"
+# #     - "dotnet publish"
+# #   environment:
+# #     name: production
+# #     url: https://Devpartners.co/Inventory/api/
+# #   only:
+# #   - master
+
+# build_job:
+#   stage: build
 #   variables:
 #     build_path: "$project"
 #   script:
-#     - echo "Deploy to Prod"
 #     - "cd $build_path"
 #     - "dotnet build"
-#     - "dotnet publish"
-#   environment:
-#     name: production
-#     url: https://Devpartners.co/Inventory/api/
+#   artifacts:
+#     paths: 
+#     - '$project/bin/Release/Publish/'
+  
+# deploy_job:
+#   stage: deploy
 #   only:
 #   - master
+#   script: 
+#     - "cd $build_path"
+#     - "dotnet run"
+#     - "dotnet publish -c Release -o"
 
-build_job:
-  stage: build
-  variables:
-    build_path: "$project"
-  script:
-    - "cd $build_path"
-    - "dotnet build"
-    - "dotnet publish"
-  artifacts:
-    paths: 
-    - '$project/bin/Release/Publish/'
-  
-deploy_job:
+
+image: microsoft/dotnet:latest
+
+stages:
+  - test
+  - deploy
+
+release:
   stage: deploy
   only:
-  - master
-  script: 
-    - 'copy /y /s "/builds/mlabio/BPOSolution/Portfolio/bin/Debug/netcoreapp2.1/BPOSolution.dll" "https://Devpartners.co/Inventory/api/BPOSolution.dll"'
+    - master
+  artifacts:
+    paths:
+      - publish/
+  script:
+    # The output path is relative to the position of the csproj-file
+    - dotnet publish -c Release -o ../publish Portfolio/BPOSolution.csproj
+    
+debug:
+  stage: test
+  script:
+    - dotnet test
