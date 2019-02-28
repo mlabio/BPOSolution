@@ -13,6 +13,8 @@ deploy:
   stage: deploy
   script:
     - echo "Deploy to Prod"
+    - "dotnet build"
+    - "dotnet publish"
   environment:
     name: production
     url: https://Devpartners.co/Inventory/api/
