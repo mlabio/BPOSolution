@@ -8,13 +8,13 @@ variables:
 
 before_script:
   - "dotnet restore"
-  
+
 deploy:
   stage: deploy
   script:
     - echo "Deploy to Prod"
   environment:
-    name: staging
+    name: production
     url: https://Devpartners.co/Inventory/api/
   only:
   - master
