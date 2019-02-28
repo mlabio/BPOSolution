@@ -5,7 +5,7 @@ stages:
   - deploy
 
 variables:
-  project: "BPOSolution"
+  project: "Portfolio"
 
 before_script:
   - "dotnet restore"
@@ -21,7 +21,21 @@ build_job:
     paths: 
     - '$project/bin/Release/Publish/'
   
+# deploy_job:
+#   stage: deploy
+#   only:
+#   - master
+#   script: 
+#     - 'xcopy /y /s "$project/bin/Release/Publish/*.*" "https://Devpartners.co/Inventory/api/"'
+
+#     - 'curl -X POST -u https://Devpartners.co/Inventory/api/'
+
 deploy_job:
+stage: deploy
+script:
+  - echo "Deploy to  server"
+environment:
   stage: deploy
-  script: 
-    - 'xcopy /y /s "$project/bin/Release/Publish/*.*" "https://Devpartners.co/Inventory/api/"'
+  url: https://Devpartners.co/Inventory/api/
+only:
+- master
