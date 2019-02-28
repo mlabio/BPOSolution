@@ -5,7 +5,7 @@ stages:
   - deploy
 
 variables:
-  project: "BPOSolution"
+  project: "Portfolio/BPOSolution"
 
 before_script:
   - "dotnet restore"
