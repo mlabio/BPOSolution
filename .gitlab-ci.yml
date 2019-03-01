@@ -1,4 +1,23 @@
-build:
+# image: microsoft/dotnet:latest
+
+# variables: 
+#   project: "Portfolio"
+
+# before_script:
+#   - "dotnet restore"
+#   - "dotnet build"
+#   - "dotnet publish -c Release -o /app"
+
+# build:
+#   stage: build
+#   script: 
+#     - echo "Deploy to Prod"
+#     - "dotnet run"
+#   environment: 
+#     name: production
+#     url: https://devpartners.co/dummy/api/
+
+  build:
   stage: build
   script:
     - chmod +x run.sh clean.sh
@@ -7,5 +26,72 @@ build:
     - docker run -d -p /dummy/api/ --restart unless-stopped dockertest
     - bash clean.sh
   environment:
-    name: production
+    name: staging
     url: https://devpartners.co/dummy/api/
+# stages:
+#   - build
+#   - deploy
+
+# variables:
+#   project: "Portfolio"
+
+# before_script:
+#   - "dotnet restore"
+
+# # deploy:
+# #   stage: deploy
+# #   variables:
+# #     build_path: "$project"
+# #   script:
+# #     - echo "Deploy to Prod"
+# #     - "cd $build_path"
+# #     - "dotnet build"
+# #     - "dotnet publish"
+# #   environment:
+# #     name: production
+# #     url: https://Devpartners.co/Inventory/api/
+# #   only:
+# #   - master
+
+# build_job:
+#   stage: build
+#   variables:
+#     build_path: "$project"
+#   script:
+#     - "cd $build_path"
+#     - "dotnet build"
+#   artifacts:
+#     paths: 
+#     - '$project/bin/Release/Publish/'
+  
+# deploy_job:
+#   stage: deploy
+#   only:
+#   - master
+#   script: 
+#     - "cd $build_path"
+#     - "dotnet run"
+#     - "dotnet publish -c Release -o"
+
+
+# image: microsoft/dotnet:latest
+
+# stages:
+#   - test
+#   - deploy
+
+# release:
+#   stage: deploy
+#   only:
+#     - master
+#   artifacts:
+#     paths:
+#       - publish/
+#   script:
+#      The output path is relative to the position of the csproj-file
+#     - dotnet publish -c Release -o ../publish Portfolio/BPOSolution.csproj
+    
+# debug:
+#   stage: test
+#   script:
+#     - dotnet test
