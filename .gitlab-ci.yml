@@ -1,3 +1,15 @@
+build:
+  stage: build
+  script:
+    - chmod +x run.sh clean.sh
+    - bash run.sh
+    - docker build -t dockertest .
+    - docker run -d -p 5000:80 --restart unless-stopped dockertest
+    - bash clean.sh
+  environment:
+    name: staging
+    url: https://devpartners.co/dummy/api/api/values
+
 # image: microsoft/dotnet:latest
 
 # variables: 
@@ -17,16 +29,16 @@
 #     name: production
 #     url: https://devpartners.co/dummy/api/
 
-  before_script:
-    - dotnet restore
-    - dotnet build
-    - dotnet publish -c Release -o /app
+  # before_script:
+  #   - dotnet restore
+  #   - dotnet build
+  #   - dotnet publish -c Release -o /app
 
-  build:
-  stage: build
-  environment:
-    name: staging
-    url: https://devpartners.co/dummy/api/
+  # build:
+  # stage: build
+  # environment:
+  #   name: staging
+  #   url: https://devpartners.co/dummy/api/
 # stages:
 #   - build
 #   - deploy
