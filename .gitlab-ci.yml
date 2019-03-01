@@ -1,69 +1,17 @@
-# image: microsoft/dotnet:latest
-
-# stages:
-#   - build
-#   - deploy
-
-# variables:
-#   project: "Portfolio"
-
-# before_script:
-#   - "dotnet restore"
-
-# # deploy:
-# #   stage: deploy
-# #   variables:
-# #     build_path: "$project"
-# #   script:
-# #     - echo "Deploy to Prod"
-# #     - "cd $build_path"
-# #     - "dotnet build"
-# #     - "dotnet publish"
-# #   environment:
-# #     name: production
-# #     url: https://Devpartners.co/Inventory/api/
-# #   only:
-# #   - master
-
-# build_job:
-#   stage: build
-#   variables:
-#     build_path: "$project"
-#   script:
-#     - "cd $build_path"
-#     - "dotnet build"
-#   artifacts:
-#     paths: 
-#     - '$project/bin/Release/Publish/'
-  
-# deploy_job:
-#   stage: deploy
-#   only:
-#   - master
-#   script: 
-#     - "cd $build_path"
-#     - "dotnet run"
-#     - "dotnet publish -c Release -o"
-
-
 image: microsoft/dotnet:latest
 
-stages:
-  - test
-  - deploy
+variables: 
+  project: "Portfolio"
 
-release:
-  stage: deploy
-  only:
-    - master
-  artifacts:
-    paths:
-      - publish/
-  script:
-    # The output path is relative to the position of the csproj-file
-    - dotnet publish -c Release -o ../publish Portfolio/BPOSolution.csproj
-    
-debug:
-  stage: test
-  script:
-    - dotnet test
+before_script:
+  - "dotnet restore"
+
+build:
+  stage: build
+  script: 
+    - echo "Deploy to Prod"
+    - cd $build_path
+    - "dotnet build"
+  environment: 
+    name: production
+    url: https://devpartners.co/dummy/api/

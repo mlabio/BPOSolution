@@ -28,3 +28,17 @@ C:\Users\mlabio\Desktop\BPOSolution\Portfolio\obj\Debug\netcoreapp2.1\BPOSolutio
 C:\Users\mlabio\Desktop\BPOSolution\Portfolio\obj\Debug\netcoreapp2.1\BPOSolution.dll
 C:\Users\mlabio\Desktop\BPOSolution\Portfolio\obj\Debug\netcoreapp2.1\BPOSolution.pdb
 C:\Users\mlabio\Desktop\BPOSolution\Portfolio\obj\Debug\netcoreapp2.1\BPOSolution.csprojAssemblyReference.cache
+D:\dev\Gitlab-ci\BPOSolution\Portfolio\bin\Debug\netcoreapp2.1\HtmlTemplate\EmailTemplate.html
+D:\dev\Gitlab-ci\BPOSolution\Portfolio\bin\Debug\netcoreapp2.1\BPOSolution.deps.json
+D:\dev\Gitlab-ci\BPOSolution\Portfolio\bin\Debug\netcoreapp2.1\BPOSolution.runtimeconfig.json
+D:\dev\Gitlab-ci\BPOSolution\Portfolio\bin\Debug\netcoreapp2.1\BPOSolution.runtimeconfig.dev.json
+D:\dev\Gitlab-ci\BPOSolution\Portfolio\bin\Debug\netcoreapp2.1\BPOSolution.dll
+D:\dev\Gitlab-ci\BPOSolution\Portfolio\bin\Debug\netcoreapp2.1\BPOSolution.pdb
+D:\dev\Gitlab-ci\BPOSolution\Portfolio\obj\Debug\netcoreapp2.1\BPOSolution.csproj.CoreCompileInputs.cache
+D:\dev\Gitlab-ci\BPOSolution\Portfolio\obj\Debug\netcoreapp2.1\BPOSolution.RazorAssemblyInfo.cache
+D:\dev\Gitlab-ci\BPOSolution\Portfolio\obj\Debug\netcoreapp2.1\BPOSolution.RazorAssemblyInfo.cs
+D:\dev\Gitlab-ci\BPOSolution\Portfolio\obj\Debug\netcoreapp2.1\BPOSolution.AssemblyInfoInputs.cache
+D:\dev\Gitlab-ci\BPOSolution\Portfolio\obj\Debug\netcoreapp2.1\BPOSolution.AssemblyInfo.cs
+D:\dev\Gitlab-ci\BPOSolution\Portfolio\obj\Debug\netcoreapp2.1\BPOSolution.RazorTargetAssemblyInfo.cache
+D:\dev\Gitlab-ci\BPOSolution\Portfolio\obj\Debug\netcoreapp2.1\BPOSolution.dll
+D:\dev\Gitlab-ci\BPOSolution\Portfolio\obj\Debug\netcoreapp2.1\BPOSolution.pdb

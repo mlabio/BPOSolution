@@ -15302,11 +15302,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mlabio\\Desktop\\BPOSolution\\Portfolio\\BPOSolution.csproj",
+      "projectUniqueName": "D:\\dev\\Gitlab-ci\\BPOSolution\\Portfolio\\BPOSolution.csproj",
       "projectName": "BPOSolution",
-      "projectPath": "C:\\Users\\mlabio\\Desktop\\BPOSolution\\Portfolio\\BPOSolution.csproj",
+      "projectPath": "D:\\dev\\Gitlab-ci\\BPOSolution\\Portfolio\\BPOSolution.csproj",
       "packagesPath": "C:\\Users\\mlabio\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mlabio\\Desktop\\BPOSolution\\Portfolio\\obj\\",
+      "outputPath": "D:\\dev\\Gitlab-ci\\BPOSolution\\Portfolio\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
