@@ -17,14 +17,13 @@
 #     name: production
 #     url: https://devpartners.co/dummy/api/
 
+  before_script:
+    - dotnet restore
+    - dotnet build
+    - dotnet publish -c Release -o /app
+
   build:
   stage: build
-  script:
-    - chmod +x run.sh clean.sh
-    - bash run.sh
-    - docker build -t dockertest .
-    - docker run -d -p /dummy/api/ --restart unless-stopped dockertest
-    - bash clean.sh
   environment:
     name: staging
     url: https://devpartners.co/dummy/api/
