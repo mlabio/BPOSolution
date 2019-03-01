@@ -1,17 +1,11 @@
-image: microsoft/dotnet:latest
-
-variables: 
-  project: "Portfolio"
-
-before_script:
-  - "dotnet restore"
-
 build:
   stage: build
-  script: 
-    - echo "Deploy to Prod"
-    - cd $build_path
-    - "dotnet build"
-  environment: 
+  script:
+    - chmod +x run.sh clean.sh
+    - bash run.sh
+    - docker build -t dockertest .
+    - docker run -d -p /dummy/api/ --restart unless-stopped dockertest
+    - bash clean.sh
+  environment:
     name: production
     url: https://devpartners.co/dummy/api/
