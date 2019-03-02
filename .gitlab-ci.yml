@@ -16,7 +16,7 @@ build:
 deploy:
   stage: deploy
   script:
-    - D:\dev\Gitlab-ci\BPOSolution\publish.cmd
+    - D:/dev/Gitlab-ci/BPOSolution/publish.cmd
   #  - ssh 40.65.191.64 "cd \inetpub\wwwroot\dummy\BackEnd" && git checkout master && git pull origin master && exit"
   environment:
     name: production
