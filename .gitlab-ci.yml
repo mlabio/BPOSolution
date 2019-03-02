@@ -3,6 +3,9 @@ stages:
   - test
   - deploy
   
+before_script:
+  - "dotnet restore" 
+  
 build:
   stage: build
   script:
