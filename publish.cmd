@@ -2,8 +2,8 @@
 cls
 
 set APP="BPOSolution"
-set DIST_PATH="D:\dev\Gitlab-ci\BPOSolution"
-set FULL_PATH="D:\dev\Gitlab-ci\BPOSolution\BPOSolution.sln"
+set DIST_PATH="40.65.191.64 cd \C:\inetpub\wwwroot\dummy\BackEnd"
+set FULL_PATH="40.65.191.64 cd \C:\inetpub\wwwroot\dummy\BackEnd"
 
 IF EXIST %DIST_PATH% (
     sc stop %APP%

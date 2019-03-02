@@ -13,16 +13,11 @@ build:
   script:
     - dotnet build
 
-test:
-  stage: test
-  script:
-    - dotnet test
-
 deploy:
   stage: deploy
   script:
-    - BPOSolution\publish.cmd
-    - ssh 40.65.191.64 "cd \inetpub\wwwroot\dummy\BackEnd" && git checkout master && git pull origin master && exit"
+    - D:\dev\Gitlab-ci\BPOSolution\publish.cmd
+  #  - ssh 40.65.191.64 "cd \inetpub\wwwroot\dummy\BackEnd" && git checkout master && git pull origin master && exit"
   environment:
     name: production
     url: https://devpartners.co/dummy/api/api/values
