@@ -16,7 +16,7 @@ build:
 deploy:
   stage: deploy
   script:
-    - ./builds/mlabio/BPOSolution/publish.cmd
+    - chmod +x ./publish.cmd
   #  - ssh 40.65.191.64 "cd \inetpub\wwwroot\dummy\BackEnd" && git checkout master && git pull origin master && exit"
   environment:
     name: production
